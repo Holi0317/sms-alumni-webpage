@@ -1,5 +1,5 @@
 {
-  "name": "SMS alumni",
+  "name": "SMS-alumni",
   "version": "0.0.0",
   "devDependencies": {
     "browserify": "~9.0.8",
