@@ -1,0 +1,23 @@
+{
+  "name": "holi0317",
+  "version": "0.0.1",
+  "description": "Packages for holi0317.net",
+  "authors": [
+    "holi0317"
+  ],
+  "license": "MIT",
+  "homepage": "holi0317.net",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-material-design": ">=0.3.0",
+    "animate.css": ">=3.2.6",
+    "wow.js": ">=1.1.2",
+    "jquery": ">=2.1.3"
+  }
+}

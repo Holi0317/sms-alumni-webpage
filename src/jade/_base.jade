@@ -1,0 +1,63 @@
+doctype html
+html
+  block vars
+  head
+    meta(charset="utf-8")
+    block title
+      title PLEASE CHANGE THE TITIE, DERP
+    
+    link(href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css", rel="stylesheet")
+    link(href="bower_components/bootstrap-material-design/dist/css/roboto.min.css", rel="stylesheet")
+    link(href="bower_components/bootstrap-material-design/dist/css/material.min.css", rel="stylesheet")
+    link(href="bower_components/bootstrap-material-design/dist/css/ripples.min.css", rel="stylesheet")
+    link(href="bower_components/animate.css/animate.css", rel="stylesheet")
+
+    script(src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js")
+    script(src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js")
+    script(src="bower_components/bootstrap-material-design/dist/js/ripples.min.js")
+    script(src="bower_components/bootstrap-material-design/dist/js/material.min.js")
+    script(src="bower_components/wow.js/dist/wow.min.js")
+
+    script new WOW().init();
+    block head
+
+  body
+    nav.navbar.navbar-default
+      .container-fluid
+        .navbar-header
+          button.navbar-toggle.collapsed(type="button", data-toggle="collapse", data-target="#navbar", aria-expanded="false", aria-controls="navbar")
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href="index.html") Sports Club
+
+        div#navbar.collapse.navbar-collapse.navbar-right
+          ul.nav.navbar-nav
+            li 
+              a(href='index.html') Home 
+            li 
+              a(href='objective.html') Objectives 
+            li 
+              a(href='link.html') Links 
+            li.dropdown
+              a.dropdown-toggle(data-toggle="dropdown" href="#") Member list 
+                span.caret 
+              ul.dropdown-menu
+                li 
+                  a(href='athletics.html') Athletics
+                li 
+                  a(href='badminton.html') Badminton
+                li 
+                  a(href='basketball.html') Basketball
+                li 
+                  a(href='football.html') Football
+                li 
+                  a(href='rugby.html') Rugby
+                li 
+                  a(href='tabletennis.html') Table Tennis
+                li 
+                  a(href='volleyball.html') Volleyball
+
+    block body 
+
+    script(src="static/js/onload.min.js")
