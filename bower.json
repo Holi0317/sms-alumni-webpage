@@ -1,12 +1,10 @@
 {
-  "name": "holi0317",
-  "version": "0.0.1",
-  "description": "Packages for holi0317.net",
+  "name": "SMS alumni",
+  "version": "0.0.0",
+  "description": "Packages for St. marks school alumni",
   "authors": [
     "holi0317"
   ],
-  "license": "MIT",
-  "homepage": "holi0317.net",
   "ignore": [
     "**/.*",
     "node_modules",

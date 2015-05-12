@@ -1,6 +1,6 @@
 {
-  "name": "holi0317.net",
-  "version": "0.0.1",
+  "name": "SMS alumni",
+  "version": "0.0.0",
   "devDependencies": {
     "browserify": "~9.0.8",
     "grunt": "~0.4.5",
