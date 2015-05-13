@@ -38,11 +38,17 @@ module.exports = (grunt) ->
         dest: 'dist/'
         ext: '.html'
 
+    # Clean directory
+    clean:
+      [
+        'dist/static/js/'
+      ]
 
   # Load plugins for tasks
   grunt.loadNpmTasks('grunt-contrib-coffee')
   grunt.loadNpmTasks('grunt-contrib-uglify')
   grunt.loadNpmTasks('grunt-contrib-jade')
+  grunt.loadNpmTasks('grunt-contrib-clean')
 
   # Default tasks 
-  grunt.registerTask('default', ['coffee', 'uglify', 'jade'])
+  grunt.registerTask('default', ['clean', 'coffee', 'uglify', 'jade'])

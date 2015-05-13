@@ -1,13 +1,70 @@
 extends ./_base.jade
 
+block head 
+  script(src='static/js/fbjssdk.min.js')
+
 block title
-  title St. Mark's School Sports Club
+  title Alumni Association
 
 block body
-  .container.wow.fadeInUp
-    .card
-      .card-body(style="text-align:center")
-        h1 Chief Teacher Advisor: Ms F.C. Luk
-        h1 Commitee Members 2014 - 2015
-        h2 Chairperson: Wong Ying Tung (4B)
-        h3 Vice Chairperson: Fung Sze Yui (4A)
+  #fb-root
+
+  .container 
+    .jumbotron
+      img(src='static/img/banner.png', alt='banner', height='127')
+
+  .container 
+    .row
+      .col-sm-8
+        .card.wow.fadeInUp
+          .card-body
+            p News 
+            p This is a test message
+
+        br
+        br
+
+        .card.wow.fadeInUp
+          .card-body
+            p News 
+            p Another news
+
+      .visible-xs
+        br
+
+      .col-sm-4
+        .card.wow.fadeInUp
+          .card-body 
+            div.fb-page(data-href="https://www.facebook.com/facebook", data-hide-cover="false", data-show-facepile="true", data-show-posts="false")
+              div.fb-xfbml-parse-ignore
+                blockquote(cite="https://www.facebook.com/facebook")
+                  a(href="https://www.facebook.com/facebook") Facebook
+
+        br 
+        br
+
+        .card.wow.fadeInUp 
+          .card-body 
+            form.form-inline(role='form')
+              input.form-control.floating-label(placeholder="Submit E-news" type="email")
+              button.btn.btn-default(type="submit") Submit
+
+        br 
+        br
+
+        .card.wow.fadeInUp
+          .card-body 
+            p links 
+            ul(style='list-style-type:none')
+              li 
+                a(href='http://www.google.com') Google
+              li
+                a(href='http://www.stmarks.edu.hk/newsms/') SMS
+
+        br 
+        br
+
+        .card.wow.fadeInUp
+          .card-body
+            p contact us 
+            p ** Phone number, email**
