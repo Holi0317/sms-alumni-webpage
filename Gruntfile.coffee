@@ -2,10 +2,8 @@ module.exports = (grunt) ->
   grunt.initConfig
     pkg: grunt.file.readJSON('package.json')
 
-    # Compress .js into .min.js 
+    # Compress .js into .min.js
     uglify:
-      options:
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
       build:
         expand: true
         cwd: 'dist/static/js'
@@ -13,7 +11,7 @@ module.exports = (grunt) ->
         dest: 'dist/static/js/'
         ext: '.min.js'
 
-    # Compile coffee to javascript 
+    # Compile coffee to javascript
     coffee:
       compile:
         expand: true
@@ -32,7 +30,7 @@ module.exports = (grunt) ->
         expand: true
         cwd: 'src/jade'
         src: [
-          '**/*.jade',
+          '**/*.jade'
           '!**/_*.jade'
         ]
         dest: 'dist/'
@@ -44,11 +42,25 @@ module.exports = (grunt) ->
         'dist/static/js/'
       ]
 
+    # Inject bower component into html
+    wiredep:
+      task:
+        src: ['dist/**/*.html']
+      options:
+        exclude: ['jquery']
+
   # Load plugins for tasks
   grunt.loadNpmTasks('grunt-contrib-coffee')
   grunt.loadNpmTasks('grunt-contrib-uglify')
   grunt.loadNpmTasks('grunt-contrib-jade')
   grunt.loadNpmTasks('grunt-contrib-clean')
+  grunt.loadNpmTasks('grunt-wiredep')
 
-  # Default tasks 
-  grunt.registerTask('default', ['clean', 'coffee', 'uglify', 'jade'])
+  # Default tasks
+  grunt.registerTask('default', [
+    'clean'
+    'coffee'
+    'uglify'
+    'jade'
+    'wiredep'
+  ])

@@ -12,5 +12,8 @@
   },
   "users": {
     "holi0317": true
+  },
+  "dependencies": {
+    "wiredep": "^2.2.2"
   }
 }
