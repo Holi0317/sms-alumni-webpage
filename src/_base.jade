@@ -3,8 +3,9 @@ html
   block vars
   head
     meta(charset="utf-8")
-    meta(http-equiv="X-UA-Compatible", content="IE=edge")
-    meta(name="viewport", content="width=device-width, initial-scale=1")
+    // mobile view is broken right now
+    //meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    //meta(name="viewport", content="width=device-width, initial-scale=1")
     block title
       title PLEASE CHANGE THE TITIE
 
@@ -13,7 +14,7 @@ html
     // bower:css
     link(rel='stylesheet', href='bower_components/bootstrap/dist/css/bootstrap.css')
     // endbower
-    link(rel='stylesheet', href='static/style.css')
+    link(rel='stylesheet', href='static/css/style.css')
     //-<!-- endbuild -->
 
     //-<!-- build:js static/bundle.js -->
@@ -21,7 +22,7 @@ html
     script(src='bower_components/jquery/dist/jquery.js')
     script(src='bower_components/bootstrap/dist/js/bootstrap.js')
     // endbower
-    script(src='static/onload.js')
+    script(src='static/js/onload.js')
     //-<!-- endbuild -->
 
     block head

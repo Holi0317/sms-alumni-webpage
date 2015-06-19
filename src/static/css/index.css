@@ -1,0 +1,12 @@
+#event-notice {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 5px;
+}
+
+#exec-commitee table > tbody > tr > td:first-child {
+    font-weight: bold;
+}

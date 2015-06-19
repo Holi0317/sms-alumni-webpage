@@ -3,6 +3,11 @@ body {
     font-family: 'OpenSans', 'sans-serif';
 }
 
+/* set h3 color to the one selected */
+h3 {
+    color: #0070C0;
+}
+
 /* header separater */
 div#header li + li::before {
     content: " / ";

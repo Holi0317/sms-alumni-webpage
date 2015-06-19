@@ -1,11 +1,11 @@
 extends ./_base.jade
 
 block head
-  link(rel='stylesheet', href='static/index.css')
-  script(src='static/index.js')
+  link(rel='stylesheet', href='static/css/index.css')
+  script(src='static/js/index.js')
 
 block title
-  title Alumni Association
+  title St. Mark's School Alumni Association
 
 block vars
   - var banner_image = 'static/img/banner_index.png'
@@ -19,26 +19,9 @@ block body
         a.list-group-item(href='#', data-bound-to='#past-chair') past chairpersons
         a.list-group-item(href='#', data-bound-to='#honor-mem') honorable members
 
-      br
+      a(href='event.html'): img#event-notice.img-responsive(src='static/img/index/event.png', alt='upcomming event')
 
-      img#event-notice.img-responsive(src='static/img/index/event.png', alt='upcomming event')
-
-      br
-
-      #e-signup
-        h3 e-news sign up
-        // Change method to POST in production
-        form(role='form', action='enews.html', method='GET')
-          //- mixin for a form item. Requires id, display name and type as argument
-          mixin form_item(iden, name, text)
-            .form-group
-              input.form-control(for= iden, id= iden, type= text, placeholder= name)
-          +form_item('first-name', 'first name')
-          +form_item('last-name', 'last name')
-          +form_item('grad-year', 'year of graduation')
-          +form_item('email', 'email', 'email')
-          button.btn.btn-link.pull-right(type='submit') submit
-
+      include _enews.jade
 
     .col-md-9
       //- Content on right
@@ -50,10 +33,10 @@ block body
           tbody
             tr
               td Chairman
-              td: p Wong Yat Hung, Jacko 黃逸雄 (1988)
+              td Wong Yat Hung, Jacko 黃逸雄 (1988)
             tr
               td Vice-Chairman
-              td 
+              td
                 p Ching Lai Mun, Veronica 程麗敏 (1981)
                 p Leung Wai Kin, Jacky 梁偉健 (1991)
             tr
@@ -65,9 +48,9 @@ block body
             tr
               td Assistant Secretary
               td Cheung Man Shan, Sonia 張文珊 (2009)
-            tr 
+            tr
               td Committee Members
-              td 
+              td
                 p Chan Chu Kwong, Mike 陳柱光 (1972)
                 p Chan Kit Hing 陳潔卿 (2009)
                 p Chan Sai Wing, Phillip 陳世榮 (1976)

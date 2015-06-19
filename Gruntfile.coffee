@@ -7,13 +7,13 @@ module.exports = (grunt) ->
       compile:
         expand: true
         flatten: true
-        cwd: 'src'
+        cwd: 'src/js'
         src: [
           '**/*.coffee'
           '!**/_*.coffee'
           '!bower_components/**/*'
         ]
-        dest: 'src/static/'
+        dest: 'src/static/js'
         ext: '.js'
 
     # Jade template engine support
@@ -41,19 +41,31 @@ module.exports = (grunt) ->
     copy:
       build:
         files: [{
+          # Css file
           expand: true
           flatten: true
           cwd: 'src'
           src: [
             '**/*.css'
-            '**/*.js'
             '!**/_*.css'
+            '!bower_components/**/*'
+          ]
+          dest: 'dist/static/css'
+        }
+        {
+          # Javascript file
+          expand: true
+          flatten: true
+          cwd: 'src'
+          src: [
+            '**/*.js'
             '!**/_*.js'
             '!bower_components/**/*'
           ]
-          dest: 'dist/static'
+          dest: 'dist/static/js'
         }
         {
+          # font file
           expand: true
           flatten: true
           cwd: 'src'
@@ -63,6 +75,7 @@ module.exports = (grunt) ->
           dest: 'dist/static/fonts'
         }
         {
+          # Images
           expand: true
           cwd: 'src/static/img'
           src: ['**/*']

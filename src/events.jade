@@ -1,0 +1,46 @@
+extends ./_base.jade
+
+block title
+  title Upcoming events - St. Mark's School Alumni Association
+
+block vars
+  - var banner_image = 'static/img/banner_event.png'
+
+block head
+  link(rel='stylesheet', href='static/css/events.css')
+
+block body
+  .container
+    .col-md-3
+      //- left bar
+      include _enews.jade
+
+    .col-md-9
+      //- right Content
+      h3 Upcoming events
+
+      .well
+        h4 BBQ
+        p Date: 30 May 2015
+        p Venue: Disciplined Services Sports and Recreation Club
+        a.pull-right(href='#')  Details
+
+      .well.well-alt
+        h4 蛋糕製作班
+        p 各位,校友會又有新攪作,今次安排蛋糕製作班,最適合三五知己一齊上堂開心吓!
+        p 日期: 2015年7月25日星期六
+        p 時間: 下午2時至5時
+        p 
+          | 地點: Someonebaking 烘焙教室 
+          a(href='https://www.google.com/maps/place/Shing+Yip+Industrial+Bldg,+19-21+Shing+Yip+St,+Kwun+Tong,+Hong+Kong/@22.3100594,114.2271209,17z/data=!3m1!4b1!4m2!3m1!1s0x340401454cafc281:0x2717505dcd75a1c') (觀塘成業街成業工業大廈1樓26室)
+        p 費用: 每位$240(會員)/$260(非會員)
+        p 報名方法: 請將姓名及聯絡方法電郵至校友會
+        p smsaal@gmail.com,活動籌委小組會與你聯絡。
+        p * 人數有限,額滿即止。
+        a.pull-right(href='#')  Details
+
+      .well
+        h4 「生涯規劃」惠州考察團
+        p 地點: 廣東省惠州市 創樂電子實業(惠州)有限公司
+        p 日期: 2015年5月22日- 23日(兩日一夜)
+        a.pull-right(href='#')  Details
