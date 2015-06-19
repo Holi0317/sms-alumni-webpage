@@ -2,20 +2,6 @@ module.exports = (grunt) ->
   grunt.initConfig
     pkg: grunt.file.readJSON('package.json')
 
-    # Compile coffee to javascript
-    coffee:
-      compile:
-        expand: true
-        flatten: true
-        cwd: 'src/js'
-        src: [
-          '**/*.coffee'
-          '!**/_*.coffee'
-          '!bower_components/**/*'
-        ]
-        dest: 'src/static/js'
-        ext: '.js'
-
     # Jade template engine support
     jade:
       compile:
@@ -107,7 +93,6 @@ module.exports = (grunt) ->
         ]
 
   # Load plugins for tasks
-  grunt.loadNpmTasks('grunt-contrib-coffee')
   grunt.loadNpmTasks('grunt-contrib-jade')
   grunt.loadNpmTasks('grunt-contrib-clean')
   grunt.loadNpmTasks('grunt-wiredep')
@@ -121,7 +106,6 @@ module.exports = (grunt) ->
   grunt.registerTask('default', [
     'clean'
     'copy'
-    'coffee'
     'wiredep'
     'jadeUsemin'
     'jade'
