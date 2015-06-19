@@ -1,0 +1,65 @@
+body {
+    padding-top: 10px;
+    font-family: 'OpenSans', 'sans-serif';
+}
+
+/* header separater */
+div#header li + li::before {
+    content: " / ";
+}
+
+/* Header image */
+img#brand-img {
+    padding: 5px;
+    display: inline;
+}
+
+/* Header text */
+div#header span#brand {
+    position: absolute;
+    bottom: 0px;
+    padding: 5px;
+    font-size: 150%;
+}
+
+/* Float header links to bottom left of header */
+div#header {
+    position: relative;
+}
+
+div#header small {
+    position: absolute;
+    bottom: 0px;
+    right: 20px;
+}
+
+/* facebook icon */
+div#header #fb-page {
+    position: absolute;
+    right: 20px;
+    top: 0px;
+}
+
+/* centre navbar contents */
+@media (min-width: 768px) {
+  .navbar-nav {
+    width: 100%;
+    text-align: center;
+  }
+  .navbar-nav > li {
+    float: none;
+    display: inline-block;
+  }
+  .navbar-nav > li.navbar-right {
+    float: right !important;
+  }
+}
+
+.back-color-blue {
+    background-color: #126aaf;
+}
+
+/* Change banner photo width such that no white space is left */
+#banner img {
+    width: 100%;
+}

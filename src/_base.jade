@@ -7,14 +7,16 @@ html
     meta(name="viewport", content="width=device-width, initial-scale=1")
     block title
       title PLEASE CHANGE THE TITIE
-    
+
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Open+Sans')
     //-<!-- build:css static/bundle.css -->
     // bower:css
     link(rel='stylesheet', href='bower_components/bootstrap/dist/css/bootstrap.css')
     link(rel='stylesheet', href='bower_components/bootstrap-material-design/dist/css/material.css')
     link(rel='stylesheet', href='bower_components/bootstrap-material-design/dist/css/ripples.css')
     link(rel='stylesheet', href='bower_components/animate.css/animate.css')
-    // endbower 
+    // endbower
+    link(rel='stylesheet', href='static/style.css')
     //-<!-- endbuild -->
 
     //-<!-- build:js static/bundle.js -->
@@ -24,44 +26,46 @@ html
     script(src='bower_components/bootstrap-material-design/dist/js/material.js')
     script(src='bower_components/bootstrap-material-design/dist/js/ripples.js')
     script(src='bower_components/wow.js/dist/wow.js')
-    // endbower 
+    // endbower
     script(src='static/onload.js')
     //-<!-- endbuild -->
 
-    script new WOW().init();
     block head
 
   body
-    //- Navbar start
-    nav.navbar.navbar-default.navbar-fixed-top
-      .container-fluid
-        .navbar-header
-          button.navbar-toggle(type="button", data-toggle="collapse", data-target="#navbar")
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a.navbar-brand(href="index.html") 
-            img(src='static/img/icon.png', alt='icon', width='64', height='64')
+    //- header
+    #header.container
+      a(href='/')
+        img.img-responsive#brand-img(src='static/img/logo.png', alt='logo', width='55', height='55')
+        span#brand St. Mark's School Alumni Association
+      small
+        ul.list-inline
+          li: a(href='http://www.stmarks.edu.hk/newsms/') St. Mark's School
+          li: a(href='links.html') Links
+          li: a(href='#enews') e-news sign up
+          li: a(href='contact.html') contact us
+      a#fb-page(href='www.facbook.com'): img.img-responsive(src='static/img/fb_icon.png', alt='Facebook page', height='25', width='25')
 
-        #navbar.collapse.navbar-collapse
+    //- separator, blue
+    .container
+      div.back-color-blue
+        br
+
+    //- front photo
+    .container#banner
+      img.img-responsive(src= banner_image, alt='banner')
+
+    //- desktop navbar
+    .container
+      nav.navbar.navbar-default
+        .collapse.navbar-collapse
           ul.nav.navbar-nav
-            li 
-              a(href='news.html') News 
-            li 
-              a(href='link.html') Links 
-            li.dropdown
-              a.dropdown-toggle(data-toggle="dropdown" href="#") Dropdown test 
-                span.caret 
-              ul.dropdown-menu
-                li 
-                  a(href='#') dropdown 1
-                li 
-                  a(href='#') Dropdown 2
+            include _navbar.jade
 
-    //- Navbar ends
-
-    block body 
+    block body
 
     footer.footer
-      .container 
-        p.text-muted footer
+      .container.text-muted
+        span Copyright &copy 2015 St. Mark's School Alumni Association Limited. All Right Reserved. /
+        a(href='sitemap.html') site map
+        span / web designed by Hollis and Eric

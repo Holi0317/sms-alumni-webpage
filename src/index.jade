@@ -3,52 +3,14 @@ extends ./_base.jade
 block title
   title Alumni Association
 
+block vars
+  - var banner_image = 'static/img/banner_index.png'
+
 block body
-  .container 
-    .jumbotron
-      img(src='static/img/banner.png', alt='banner', height='127')
+  .container
+    .col-md-3
+      //- Left bar
 
-  .container 
-    .row
-      .col-sm-8
-        .card.wow.fadeInUp
-          .card-body
-            p News 
-            p This is a test message
 
-        br
-        br
-
-        .card.wow.fadeInUp
-          .card-body
-            p News 
-            p Another news
-
-      .visible-xs
-        br
-
-        .card.wow.fadeInUp 
-          .card-body 
-            form.form-inline(role='form')
-              input.form-control.floating-label(placeholder="Submit E-news" type="email")
-              button.btn.btn-default(type="submit") Submit
-
-        br 
-        br
-
-        .card.wow.fadeInUp
-          .card-body 
-            p links 
-            ul(style='list-style-type:none')
-              li 
-                a(href='http://www.google.com') Google
-              li
-                a(href='http://www.stmarks.edu.hk/newsms/') SMS
-
-        br 
-        br
-
-        .card.wow.fadeInUp
-          .card-body
-            p contact us 
-            p ** Phone number, email**
+    .col-md-9
+      //- Content on right
