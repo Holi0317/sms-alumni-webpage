@@ -8,15 +8,25 @@ html
     block title
       title PLEASE CHANGE THE TITIE
     
-    link(href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css", rel="stylesheet")
-    link(href="static/css/style.css", rel="stylesheet")
-    // bower:css 
+    //-<!-- build:css static/bundle.css -->
+    // bower:css
+    link(rel='stylesheet', href='bower_components/bootstrap/dist/css/bootstrap.css')
+    link(rel='stylesheet', href='bower_components/bootstrap-material-design/dist/css/material.css')
+    link(rel='stylesheet', href='bower_components/bootstrap-material-design/dist/css/ripples.css')
+    link(rel='stylesheet', href='bower_components/animate.css/animate.css')
     // endbower 
+    //-<!-- endbuild -->
 
-    script(src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js")
-    script(src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js")
-    // bower:js 
+    //-<!-- build:js static/bundle.js -->
+    // bower:js
+    script(src='bower_components/jquery/dist/jquery.js')
+    script(src='bower_components/bootstrap/dist/js/bootstrap.js')
+    script(src='bower_components/bootstrap-material-design/dist/js/material.js')
+    script(src='bower_components/bootstrap-material-design/dist/js/ripples.js')
+    script(src='bower_components/wow.js/dist/wow.js')
     // endbower 
+    script(src='static/onload.js')
+    //-<!-- endbuild -->
 
     script new WOW().init();
     block head
@@ -55,5 +65,3 @@ html
     footer.footer
       .container 
         p.text-muted footer
-
-    script(src="static/js/onload.min.js")

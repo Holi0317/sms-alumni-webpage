@@ -1,14 +1,9 @@
 extends ./_base.jade
 
-block head 
-  script(src='static/js/fbjssdk.min.js')
-
 block title
   title Alumni Association
 
 block body
-  #fb-root
-
   .container 
     .jumbotron
       img(src='static/img/banner.png', alt='banner', height='127')
@@ -30,17 +25,6 @@ block body
             p Another news
 
       .visible-xs
-        br
-
-      .col-sm-4
-        .card.wow.fadeInUp
-          .card-body 
-            div.fb-page(data-href="https://www.facebook.com/facebook", data-hide-cover="false", data-show-facepile="true", data-show-posts="false")
-              div.fb-xfbml-parse-ignore
-                blockquote(cite="https://www.facebook.com/facebook")
-                  a(href="https://www.facebook.com/facebook") Facebook
-
-        br 
         br
 
         .card.wow.fadeInUp 
