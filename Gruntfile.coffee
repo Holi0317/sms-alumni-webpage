@@ -64,9 +64,8 @@ module.exports = (grunt) ->
         }
         {
           expand: true
-          flatten: true
           cwd: 'src/static/img'
-          src: ['*']
+          src: ['**/*']
           dest: 'dist/static/img'
         }
         ]
