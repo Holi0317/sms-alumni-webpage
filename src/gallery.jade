@@ -1,0 +1,28 @@
+extends ./_base.jade
+
+block title
+  title Photo Gallery - St. Mark's School Alumni Association
+
+block vars
+  - var banner_image = 'static/img/banner_gallery.png'
+
+block body
+  .container
+    h3 Photo Gallery
+    //- Create an event item. requires thumbnail path, title of the event and date of the event
+    mixin photoItem(thumbnail, title, date)
+      .col-md-4
+        img.img-thumbnail(src= thumbnail, alt= title, width='300', height='300')
+        h4= title
+        h4 Date
+          =date
+
+    .row
+      +photoItem('static/img/gallery/20150426_111.jpg', 'BBQ', '30 May 2015')
+      +photoItem('static/img/gallery/20150426_112.jpg', '「生涯規劃」惠州考察團', '22-23 May 2015')
+      +photoItem('static/img/gallery/20150426_113.jpg', '蛋糕製作班', '25 July 2015')
+
+    .row
+      +photoItem('static/img/gallery/20150426_114.jpg', 'Placeholder', '19 June 2015')
+      +photoItem('static/img/gallery/20150426_115.jpg', 'An interesting event', '11 May 2014')
+      +photoItem('static/img/gallery/20150426_116.jpg', 'Comming event', '16 May 2015')
