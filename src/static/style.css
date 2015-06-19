@@ -55,11 +55,19 @@ div#header #fb-page {
   }
 }
 
-.back-color-blue {
+/* Set background color to blue */
+.back-color-blue, #footer{
     background-color: #126aaf;
 }
 
 /* Change banner photo width such that no white space is left */
 #banner img {
     width: 100%;
+}
+
+/* set color of footer text */
+#footer span, #footer a{
+    color: #FFFFFF;
+    font-family: 'OpenSans', 'sans-serif';
+    opacity: 0.7;
 }

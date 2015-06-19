@@ -12,9 +12,6 @@ html
     //-<!-- build:css static/bundle.css -->
     // bower:css
     link(rel='stylesheet', href='bower_components/bootstrap/dist/css/bootstrap.css')
-    link(rel='stylesheet', href='bower_components/bootstrap-material-design/dist/css/material.css')
-    link(rel='stylesheet', href='bower_components/bootstrap-material-design/dist/css/ripples.css')
-    link(rel='stylesheet', href='bower_components/animate.css/animate.css')
     // endbower
     link(rel='stylesheet', href='static/style.css')
     //-<!-- endbuild -->
@@ -23,9 +20,6 @@ html
     // bower:js
     script(src='bower_components/jquery/dist/jquery.js')
     script(src='bower_components/bootstrap/dist/js/bootstrap.js')
-    script(src='bower_components/bootstrap-material-design/dist/js/material.js')
-    script(src='bower_components/bootstrap-material-design/dist/js/ripples.js')
-    script(src='bower_components/wow.js/dist/wow.js')
     // endbower
     script(src='static/onload.js')
     //-<!-- endbuild -->
@@ -64,8 +58,9 @@ html
 
     block body
 
-    footer.footer
-      .container.text-muted
-        span Copyright &copy 2015 St. Mark's School Alumni Association Limited. All Right Reserved. /
-        a(href='sitemap.html') site map
-        span / web designed by Hollis and Eric
+    .container
+      #footer.text-center
+        .container.text-muted
+          span Copyright &copy 2015 St. Mark's School Alumni Association Limited. All Right Reserved. /
+          a(href='sitemap.html') site map
+          span / web designed by Hollis and Eric

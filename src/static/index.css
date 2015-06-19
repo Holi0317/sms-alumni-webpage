@@ -1,0 +1,14 @@
+#event-notice {
+  width: 100%;
+}
+
+#e-signup {
+    background-color: #8fabdd;
+    padding: 3px, 10px;
+    margin-bottom: 5px;
+    overflow: hidden;
+}
+
+.form-group {
+    margin-bottom: 5px;
+}

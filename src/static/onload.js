@@ -14,6 +14,4 @@
     });
   });
 
-  new WOW().init();
-
 }).call(this);
