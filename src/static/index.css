@@ -12,3 +12,11 @@
 .form-group {
     margin-bottom: 5px;
 }
+
+#exec-commitee h3 {
+    color: #0070c0;
+}
+
+#exec-commitee table > tbody > tr > td:first-child {
+    font-weight: bold;
+}

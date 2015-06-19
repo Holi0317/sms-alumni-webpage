@@ -1,7 +1,7 @@
 (function() {
   $(function() {
     var url;
-    url = window.location;
+    url = this.location.pathname;
     $("ul.nav a[href='" + url + "']").parent().addClass('active');
     $('ul.nav a').filter(function() {
       return this.href === url;
