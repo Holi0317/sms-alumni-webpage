@@ -23,8 +23,8 @@ img#brand-img {
 div#header span#brand {
     position: absolute;
     bottom: 0px;
-    padding: 5px;
-    font-size: 150%;
+    padding: 7px;
+    font-size: 170%;
 }
 
 /* Float header links to bottom left of header */
