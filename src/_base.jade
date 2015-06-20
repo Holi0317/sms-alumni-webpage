@@ -28,35 +28,38 @@ html
 
   body
     //- header
-    #header.container.hidden-xs
-      a(href='/')
-        img.img-responsive#brand-img(src='static/img/logo.png', alt='logo', width='55', height='55')
-        span#brand St. Mark's School Alumni Association
-      small
-        ul.list-inline
-          li: a(href='http://www.stmarks.edu.hk/newsms/') St. Mark's School
-          li: a(href='links.html') Links
-          li: a(href='#enews') e-news sign up
-          li: a(href='contact.html') contact us
-      a#fb-page(href='http://www.facbook.com'): img.img-responsive(src='static/img/fb_icon.png', alt='Facebook page', height='25', width='25')
+    header.container.hidden-xs.relative
+      .header-left
+        a(href='/')
+          img.img-responsive.inline(src='static/img/logo.png', alt='logo', width='55', height='55')
+          span St. Mark's School Alumni Association
+      .header-right
+        small.links
+          ul.list-inline
+            li: a(href='http://www.stmarks.edu.hk/newsms/') St. Mark's School
+            li: a(href='links.html') Links
+            li: a(href='#enews') e-news sign up
+            li: a(href='contact.html') contact us
+        a(href='http://www.facbook.com'): img.img-responsive(src='static/img/fb_icon.png', alt='Facebook page', height='25', width='25')
 
     //- separator, blue
     .container.hidden-xs
-      div.back-color-blue
+      .theme-back-color
         br
 
     //- front photo
+    //- Specify image in each page, using variable 'banner_image'
     .container#banner.hidden-xs
-      img.img-responsive(src= banner_image, alt='banner')
+      img.img-responsive.width-100(src= banner_image, alt='banner')
 
     //- desktop navbar
-    .container.hidden-xs
-      nav.navbar.navbar-default#desktop-nav
+    .container.hidden-xs.desktop-nav
+      nav.navbar.navbar-default
         ul.nav.nav-justified
           include _navbar.jade
 
     //- mobile navbar
-    nav.navbar.navbar-default.visible-xs-inline.navbar-fixed-top
+    nav.navbar.navbar-default.visible-xs-inline.navbar-fixed-top.mobile-navbar
       .container-fluid
         .navbar-header
           button.navbar-toggle(type='button', data-toggle='collapse', data-target='#mobile-navbar')
@@ -64,15 +67,16 @@ html
             span.icon-bar
             span.icon-bar
           a.navbar-brand(href='/')
-            img.img-responsive(src='static/img/logo.png', width='25', height='25', alt='Alumni Association')
-        .collapse.navbar-collapse#mobile-navbar
+            img.visible-xs-inline-block(src='static/img/logo.png', width='25', height='25', alt='Alumni Association')
+            span Alumni Association
+        .collapse.navbar-collapse
           ul.nav.navbar-nav
             include _navbar.jade
 
     block body
 
     .container
-      #footer.text-center
+      footer.text-center.theme-back-color
         .container.text-muted
           span Copyright &copy 2015 St. Mark's School Alumni Association Limited. All Right Reserved. /
           a(href='sitemap.html') site map

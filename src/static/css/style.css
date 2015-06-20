@@ -1,3 +1,23 @@
+/* Helper functions
+ * As some CSS usage are common to see, this section will wrap them up into classes */
+.inline {
+    display: inline;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.width-100 {
+    /* Force image to respect width, so that no dirty white space will left on the left */
+    width: 100%;
+}
+
+.relative {
+    position: relative;
+}
+
+/* ========== Section: body =================== */
 /* Set body padding and font (Perhaps overridded by bootstrap */
 body {
     padding-top: 20px;
@@ -11,76 +31,75 @@ body {
     }
 }
 
-/* set h3 color to the theme color */
+/* ========== Global color settings ================ */
 h3 {
     color: #0070C0;
 }
 
-/* header separater */
-div#header li + li::before {
+/* Set background color to blue */
+.theme-back-color {
+    background-color: #126aaf;
+}
+
+/* ============ Section: header ================== */
+/* Separate header links by ' / ' */
+.header-right li+ li::before {
     content: " / ";
 }
 
 /* Header image */
-img#brand-img {
+.header-left img {
     padding: 5px;
-    display: inline;
 }
 
 /* Header text */
-div#header span#brand {
+.header-left span {
     position: absolute;
-    bottom: 0px;
+    bottom: 0;
     padding: 7px;
     font-size: 170%;
 }
 
-/* Float header links to bottom left of header */
-div#header {
-    position: relative;
-}
-
-div#header small {
+header .links {
     position: absolute;
-    bottom: 0px;
+    bottom: 0;
     right: 20px;
 }
 
 /* facebook icon */
-div#header #fb-page {
+.header-right img {
     position: absolute;
     right: 20px;
-    top: 0px;
+    top: 0;
 }
 
-/* Set background color to blue */
-.back-color-blue, #footer{
-    background-color: #126aaf;
-}
 
-/* Change banner photo width such that no white space is left */
-#banner img {
-    width: 100%;
-}
-
+/* =========== Section: footer =============== */
 /* set color of footer text */
-#footer span, #footer a{
+footer span, footer a{
     color: #FFFFFF;
     font-family: 'OpenSans', 'sans-serif';
     opacity: 0.7;
 }
 
-/* Let items in desktop navbar fill up all space */
+/* =============== Section: desktop navbar =============== */
+/* Let items in navbar fill up all space */
 .nav > li > a {
-    padding: 15px; 15px;
+    padding: 15px 15px;
 }
 
-/* leave some space on top of desktop navbar */
-#desktop-nav {
+/* leave some space on top of navbar */
+.desktop-nav nav {
     margin-top: 10px;
 }
 
-/* navbar color */
+/* =============== Section: mobile navbar ================ */
+/* Leave some space between icon and text */
+.mobile-navbar .navbar-brand span {
+    padding-left: 5px;
+}
+
+/* ================= Navbar color ======================= */
 .navbar-default {
   background-color: #bdd7ee;
   border-color: #aac1d6;
