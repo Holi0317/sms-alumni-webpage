@@ -21,6 +21,7 @@ module.exports = (grunt) ->
     clean:
       [
         'dist/**/*'
+        '.tmp/**/*'
       ]
 
     # Copy static file to dist
