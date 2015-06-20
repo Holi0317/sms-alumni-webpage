@@ -1,9 +1,17 @@
+/* Set body padding and font (Perhaps overridded by bootstrap */
 body {
-    padding-top: 10px;
+    padding-top: 20px;
     font-family: 'OpenSans', 'sans-serif';
 }
 
-/* set h3 color to the one selected */
+/* As mobile view have fixed navbar, body need to have padding of 70px */
+@media (max-width: 767px) {
+    body {
+        padding-top: 70px;
+    }
+}
+
+/* set h3 color to the theme color */
 h3 {
     color: #0070C0;
 }
@@ -45,21 +53,6 @@ div#header #fb-page {
     top: 0px;
 }
 
-/* centre navbar contents */
-@media (min-width: 768px) {
-  .navbar-nav {
-    width: 100%;
-    text-align: center;
-  }
-  .navbar-nav > li {
-    float: none;
-    display: inline-block;
-  }
-  .navbar-nav > li.navbar-right {
-    float: right !important;
-  }
-}
-
 /* Set background color to blue */
 .back-color-blue, #footer{
     background-color: #126aaf;
@@ -75,6 +68,16 @@ div#header #fb-page {
     color: #FFFFFF;
     font-family: 'OpenSans', 'sans-serif';
     opacity: 0.7;
+}
+
+/* Let items in desktop navbar fill up all space */
+.nav > li > a {
+    padding: 15px; 15px;
+}
+
+/* leave some space on top of desktop navbar */
+#desktop-nav {
+    margin-top: 10px;
 }
 
 /* navbar color */

@@ -3,9 +3,8 @@ html
   block vars
   head
     meta(charset="utf-8")
-    // mobile view is broken right now
-    //meta(http-equiv="X-UA-Compatible", content="IE=edge")
-    //meta(name="viewport", content="width=device-width, initial-scale=1")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
     block title
       title PLEASE CHANGE THE TITIE
 
@@ -29,7 +28,7 @@ html
 
   body
     //- header
-    #header.container
+    #header.container.hidden-xs
       a(href='/')
         img.img-responsive#brand-img(src='static/img/logo.png', alt='logo', width='55', height='55')
         span#brand St. Mark's School Alumni Association
@@ -42,18 +41,31 @@ html
       a#fb-page(href='http://www.facbook.com'): img.img-responsive(src='static/img/fb_icon.png', alt='Facebook page', height='25', width='25')
 
     //- separator, blue
-    .container
+    .container.hidden-xs
       div.back-color-blue
         br
 
     //- front photo
-    .container#banner
+    .container#banner.hidden-xs
       img.img-responsive(src= banner_image, alt='banner')
 
     //- desktop navbar
-    .container
-      nav.navbar.navbar-default
-        .collapse.navbar-collapse
+    .container.hidden-xs
+      nav.navbar.navbar-default#desktop-nav
+        ul.nav.nav-justified
+          include _navbar.jade
+
+    //- mobile navbar
+    nav.navbar.navbar-default.visible-xs-inline.navbar-fixed-top
+      .container-fluid
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#mobile-navbar')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='/')
+            img.img-responsive(src='static/img/logo.png', width='25', height='25', alt='Alumni Association')
+        .collapse.navbar-collapse#mobile-navbar
           ul.nav.navbar-nav
             include _navbar.jade
 
