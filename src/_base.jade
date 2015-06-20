@@ -38,7 +38,7 @@ html
           ul.list-inline
             li: a(href='http://www.stmarks.edu.hk/newsms/') St. Mark's School
             li: a(href='links.html') Links
-            li: a(href='#enews') e-news sign up
+            li: a(href='enews.html') e-news sign up
             li: a(href='contact.html') contact us
         a(href='http://www.facbook.com'): img.img-responsive(src='static/img/fb_icon.png', alt='Facebook page', height='25', width='25')
 
@@ -73,9 +73,9 @@ html
           ul.nav.navbar-nav
             include _navbar.jade
 
-  //- In development warning
-  .container
-    .alert.alert-danger(role='alert') This site is still in heavy development. Many stuffs are broken. Please use with care.
+    //- In development warning
+    .container
+      .alert.alert-danger(role='alert') This site is still in heavy development. Many broken and unimplemented parts exists. Please use with care.
 
     block body
 
