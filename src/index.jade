@@ -12,9 +12,6 @@ block vars
 
 block body
   .container
-    .alert.alert-danger(role='alert') This site is still in heavy development. Many stuffs are broken. Please use with care.
-
-  .container
     .col-md-3
       //- Left bar
       .list-group#sub-nav
@@ -22,9 +19,11 @@ block body
         a.list-group-item(href='#', data-bound-to='#past-chair') past chairpersons
         a.list-group-item(href='#', data-bound-to='#honor-mem') honorable members
 
-      a(href='event.html'): img#event-notice.img-responsive(src='static/img/index/event.png', alt='upcomming event')
+      .hidden-xs
+        a(href='event.html'): img#event-notice.width-100.img-responsive(src='static/img/index/event.png', alt='upcomming event')
 
-      include _enews.jade
+      .hidden-xs
+        include _enews_widget.jade
 
     .col-md-9
       //- Content on right
