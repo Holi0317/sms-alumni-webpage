@@ -49,8 +49,10 @@ html
 
     //- front photo
     //- Specify image in each page, using variable 'banner_image'
-    .container.hidden-xs
-      img.img-responsive.width-100(src= banner_image, alt='banner')
+    //- if banner_image is not defined, no image will be shown
+    if (typeof(banner_image) !== 'undefined')
+      .container.hidden-xs
+        img.img-responsive.width-100(src= banner_image, alt='banner')
 
     //- desktop navbar
     .container.hidden-xs.desktop-nav
