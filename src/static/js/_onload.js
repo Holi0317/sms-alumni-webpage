@@ -34,14 +34,11 @@ $(function() {
   if ( typeof(Storage) !== "undefined") {
     // Vertify support of Storage
     if ( screenWidth <= 992 && screenWidth >= 768 ) {
-      console.log('viewport can be swtiched');
       // localStorage convert all values to string. This prevent 'undefined' during development
       if ( localStorage.forceDesktop === undefined || localStorage.forceDesktop === "undefined" ) {
         // Init variable on startup
         localStorage.forceDesktop = false;
       }
-
-      console.log('forceDesktop: ' + localStorage.forceDesktop);
 
       allViewSwitch = $('#view-switch').removeClass('hidden');
       if ( localStorage.forceDesktop === "true" ) {
