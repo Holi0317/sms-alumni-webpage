@@ -20,14 +20,15 @@ $(function() {
 $(function() {
   // As saving of settings requires webstorage api,
   // if browser does not support them, nothing will show on the screen
-
+  
   var screenWidth = $(window).width();
 
   if ( typeof(Storage) !== "undefined") {
     // Vertify support of Storage
-    if ( screenWidth <= 992 && screenWidth > 768 ) {
+    if ( screenWidth <= 992 && screenWidth >= 768 ) {
       console.log('viewport can be swtiched');
-      if ( localStorage.forceDesktop === undefined ) {
+      // localStorage convert all values to string. This prevent 'undefined' during development
+      if ( localStorage.forceDesktop === undefined || localStorage.forceDesktop === "undefined" ) {
         // Init variable on startup
         localStorage.forceDesktop = false;
       }
