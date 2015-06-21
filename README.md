@@ -4,11 +4,11 @@ St. Marks school alumni webpage repo
 ## build
 This requires nodejs and npm. Please install them with your package manager.
 
-After installing npm, execute the folling command:
+After installing npm, execute the following command:
 
 ` # npm i -g grunt-cli bower `
 
-Then, execute the folling command in the root of cloned repo:
+Then, execute the following command in the root of cloned repo:
 
 ` $ npm install`
 
@@ -16,17 +16,15 @@ Then, execute the folling command in the root of cloned repo:
   
 ` $ grunt `
 
-You will get a directory called dist. It is the compiled file, ready to be deployed. To startup a development server, you may use either python or node to do that.
+You will get a directory called dist. It is the compiled file, ready to be deployed.
 
-With python2 installed, execute in dist: 
+## Development server
+Execute ` $ grunt serve ` for a simple, localhost only http server. Also, whenever a jade, css or javascript file is changed, 
+it will automatically compile them and reload the page.
 
-`python2 -m SimpleHTTPServer`
+However, some actions will cause unexpected result to happen. For instance,
 
-However, it will crash after building as grunt will remove dist directory before building it.
+ 1. Adding or removal of page.
+ 2. Adding or removal of bower dependency.
 
-To use node as development server, execute:
-
-` # npm install -g http-server`
-` $ http-server -a 127.0.0.1`
-
-This will not crash after building. But stopping it after building will cause it cannot restart until change directory to a upper directory before going back to dist.
+If the above action need to be done, stop the serve daemon and run ` grunt ` once.
