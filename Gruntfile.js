@@ -2,7 +2,6 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
-    // Compile jade
     jade: {
       compile: {
         options: {
@@ -18,13 +17,12 @@ module.exports = function(grunt) {
       }
     },
 
-    clean: [
-      'dist/**/*',
-      '.tmp/**/*'
-    ],
+    clean: {
+      compile: ['dist/**/*', '.tmp/**/*']
+    },
 
     copy: {
-      build: {
+      compile: {
         files: [{
           // CSS files
           expand: true,
@@ -61,7 +59,7 @@ module.exports = function(grunt) {
     },
 
     wiredep: {
-      task: {
+      compile: {
         src: [ 'src/**/*.jade' ],
         options: {}
       }
@@ -82,8 +80,60 @@ module.exports = function(grunt) {
           src: ['**/*.jade'],
           dest: '.tmp/'
         }]
+      },
+      watchCompile: {
+        // Only change blocks of css and js into bundle version. No-op for bundling css/js
+        options: {
+          tasks: {
+            js: [],
+            css: []
+          },
+          targetPrefix: 'dist'
+        },
+        files: [{
+          expand: true,
+          cwd: 'src',
+          src: ['**/*.jade'],
+          dest: '.tmp/'
+        }]
+      }
+    },
+
+    watch: {
+      options: {
+        livereload: true
+      },
+      jade: {
+        // Does NOT support add or remove of file, nor adding dependency in bower
+        // If that is the case, stop watch and run grunt once.
+        files: ['src/**/*.jade'],
+        tasks: ['jadeUsemin:watchCompile',
+                'jade:compile']
+      },
+      css: {
+        // Bundle css file on change
+        // This does support adding file as this is how jade-usemin works
+        files: ['src/static/css/**/*.css'],
+        tasks: ['jadeUsemin:compile']
+      },
+      javascript: {
+        // Bundle js file on change
+        files: ['src/static/js/**/*.js'],
+        tasks: ['jadeUsemin:compile']
+      }
+    },
+
+    connect: {
+      server: {
+        options: {
+          livereload: true,
+          hostname: '127.0.0.1',
+          base: 'dist/',
+          port: 8080
+        }
       }
     }
+
   });
 
   grunt.loadNpmTasks('grunt-contrib-jade');
@@ -94,11 +144,15 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-jade-usemin');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-connect');
 
-  grunt.registerTask('default', ['clean',
-                                 'copy',
-                                 'wiredep',
-                                 'jadeUsemin',
-                                 'jade']);
+  grunt.registerTask('default', ['clean:compile',
+                                 'copy:compile',
+                                 'wiredep:compile',
+                                 'jadeUsemin:compile',
+                                 'jade:compile']);
+
+  grunt.registerTask('serve', ['connect:server', 'watch']);
 
 };
