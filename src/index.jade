@@ -12,19 +12,19 @@ block vars
 
 block body
   .container
-    .col-md-3
+    .col-md-3.col-sm.3.col-xs-12
       //- Left bar
       .list-group#sub-nav
         a.list-group-item.active(href='#', data-bound-to='#exec-commitee') excutive commitee
         a.list-group-item(href='#', data-bound-to='#past-chair') past chairpersons
         a.list-group-item(href='#', data-bound-to='#honor-mem') honorable members
 
-      .hidden-xs
+      .visible-md.visible-lg
         a(href='event.html'): img#event-notice.width-100.img-responsive(src='static/img/index/event.png', alt='upcomming event')
 
       include _enews_widget.jade
 
-    .col-md-9
+    .col-md-9.col-sm-9.col-xs-12
       //- Content on right
       #exec-commitee.collapse.in
         //- Executive commitee Content

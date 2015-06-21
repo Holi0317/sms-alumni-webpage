@@ -28,7 +28,7 @@ html
 
   body
     //- header
-    header.container.hidden-xs.relative
+    header.container.relative.visible-md.visible-lg
       .header-left
         a(href='/')
           img.img-responsive.inline(src='static/img/logo.png', alt='logo', width='55', height='55')
@@ -43,7 +43,7 @@ html
         a(href='http://www.facbook.com'): img.img-responsive(src='static/img/fb_icon.png', alt='Facebook page', height='25', width='25')
 
     //- separator, blue
-    .container.hidden-xs
+    .container.visible-md.visible-lg
       .theme-back-color
         br
 
@@ -51,17 +51,17 @@ html
     //- Specify image in each page, using variable 'banner_image'
     //- if banner_image is not defined, no image will be shown
     if (typeof(banner_image) !== 'undefined')
-      .container.hidden-xs
+      .container.visible-md.visible-lg
         img.img-responsive.width-100(src= banner_image, alt='banner')
 
     //- desktop navbar
-    .container.hidden-xs.desktop-nav
+    .container.desktop-nav.visible-md.visible-lg
       nav.navbar.navbar-default
         ul.nav.nav-justified
           include _navbar.jade
 
-    //- mobile navbar
-    nav.navbar.navbar-default.visible-xs-inline.navbar-fixed-top.mobile-navbar
+    //- mobile and tablet navbar
+    nav.navbar.navbar-default.navbar-fixed-top.mobile-navbar.visible-xs.visible-sm
       .container-fluid
         .navbar-header
           button.navbar-toggle(type='button', data-toggle='collapse', data-target='#mobile-navbar')
@@ -74,6 +74,24 @@ html
         .collapse.navbar-collapse#mobile-navbar
           ul.nav.navbar-nav
             include _navbar.jade
+            li.dropdown
+              a.dropdown-toggle(data-toggle='dropdown', href='#') Links
+                span.caret
+              ul.dropdown-menu
+                li: a(href='enews.html') e-news
+                li: a(href='contact.html') contact
+                li: a(href='http://www.facebook.com') facebook
+
+    //- Desktop view in tablet
+    //- As tablet view is quite awful...
+    .container.hidden#view-switch
+      .alert.alert-info.hidden(role='alert', data-target='desktop')
+        span As tablet view is quite buggy, you may want to switch to desktop view
+        br
+        button.btn.btn-success Switch to Desktop view
+      .alert.alert-info.hidden(role='alert', data-target='mobile')
+        button.btn.btn-success Switch back to tablet view
+
 
     //- In development warning
     .container

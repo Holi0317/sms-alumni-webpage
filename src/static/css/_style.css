@@ -25,7 +25,7 @@ body {
 }
 
 /* As mobile view have fixed navbar, body need to have padding of 70px */
-@media (max-width: 767px) {
+@media (max-width: 991px) {
     body {
         padding-top: 70px;
     }
