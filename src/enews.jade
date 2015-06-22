@@ -1,9 +1,5 @@
 extends ./_base.jade
 
-block head
-  link(rel='stylesheet', href='static/css/index.css')
-  script(src='static/js/index.js')
-
 block title
   title St. Mark's School Alumni Association
 
@@ -12,4 +8,19 @@ block vars
 
 block body
   .container
-    .alert.alert-warning Not implemented. This is just a preview
+    // TODO Change GET to POST in production
+    form.form-horizontal(role='form', action='enews.html', method='GET')
+
+      mixin form_item(iden, name, text)
+        .form-group
+          label.control-label.col-sm-2(for=iden)= name
+          .col-sm-10
+            input.form-control(for= iden, id= iden, type= text, placeholder= name)
+
+      +form_item('first-name', 'first name')
+      +form_item('last-name', 'last name')
+      +form_item('grad-year', 'year of graduation')
+      +form_item('email', 'email', 'email')
+      .col-sm-offset-2.col-sm-10(style='margin-bottom: 15px')
+        button.btn.btn-success(type='submit', value='Submit') Submit
+        button.btn.btn-danger(type='reset', value='Reset') Reset
