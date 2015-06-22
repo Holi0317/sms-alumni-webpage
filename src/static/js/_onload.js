@@ -20,6 +20,11 @@ $(function() {
     event.preventDefault();
     $(this).parents('.container').first().addClass('hidden');
   });
+
+  // No-op helper for links and buttons
+  $('.noop').on('click', function ( event ) {
+    event.preventDefault();
+  });
 });
 
 // View switch

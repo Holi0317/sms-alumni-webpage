@@ -1,15 +1,26 @@
 extends ./_base.jade
 
 block head
-  link(rel='stylesheet', href='static/css/index.css')
-  script(src='static/js/index.js')
+  script(src='static/js/news.js')
+  link(rel='stylesheet', href='static/css/news.css')
 
 block title
-  title St. Mark's School Alumni Association
+  title Newsletter - St. Mark's School Alumni Association
 
 block vars
   - var banner_image = 'static/img/banner_index.png'
 
 block body
   .container
-    .alert.alert-warning Not implemented. This is just a preview
+    h3 Newsletter
+    .table-responsive
+      table.table.table-striped#news-list
+        tbody
+          for month in ['June', 'May', 'April', 'March', 'February', 'January']
+            tr: td
+              a.noop(href='#')= 'Newsletter ' + month + ' 2015'
+              .summary
+                p Ms. Edith Wu, our music teacher, will have a short stay in HK from 20 Sept to 3 Oct. Ms. Wu will be available on 27 September 2012 (Thursday) for dinner with us.
+                p Some of our alumni would like to hold a party for her as she is already 86 years old. Target 10 tables. Please spread...
+                a(href='news-view.html')
+                  span.glyphicon.glyphicon-arrow-right.pull-right(aria-hidden="true") Details
