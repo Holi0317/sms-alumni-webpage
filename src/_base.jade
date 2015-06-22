@@ -83,8 +83,8 @@ html
 
     //- Desktop view in tablet
     //- As tablet view is quite awful...
-    .container.hidden#view-switch
-      .alert.alert-info.hidden(role='alert', data-target='desktop')
+    .container#view-switch
+      .alert.alert-info.visible-sm(role='alert', data-target='desktop')
         button.close(type='button', aria-label='Close'): span(aria-hidden='true') &times;
         span As tablet view is quite buggy, you may want to switch to desktop view
         br

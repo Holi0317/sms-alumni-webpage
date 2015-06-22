@@ -24,50 +24,60 @@ $(function() {
 
 // View switch
 $(function() {
-  // As saving of settings requires webstorage api,
-  // if browser does not support them, nothing will show on the screen
+  if ( typeof(Storage) === "undefined") {
+    // Browser does not support storage, no-op
+    return;
+  }
 
   var screenWidth = $(window).width();
-  var allViewSwitch;
-  var viewSwitch;
+  var mobileViewSwitch = $("#view-switch [data-target='mobile']");
+  var desktopViewSwitch = $("#view-switch [data-target='desktop']");
 
-  if ( typeof(Storage) !== "undefined") {
-    // Vertify support of Storage
-    if ( screenWidth <= 992 && screenWidth >= 768 ) {
-      // localStorage convert all values to string. This prevent 'undefined' during development
-      if ( localStorage.forceDesktop === undefined || localStorage.forceDesktop === "undefined" ) {
-        // Init variable on startup
-        localStorage.forceDesktop = false;
-      }
-
-      allViewSwitch = $('#view-switch').removeClass('hidden');
-      if ( localStorage.forceDesktop === "true" ) {
-        $("meta[name='viewport']").attr('content', 'width=1024, initial-scale=1');
-        // Show toggle box
-        viewSwitch = allViewSwitch.children("[data-target='mobile']").removeClass('hidden');
-        
-        // register event
-        viewSwitch.children('.toggle-button').on('click', function() {
-          localStorage.forceDesktop = false;
-          location.reload(true);
-        });
-      } else {
-        // Show toggle box
-        viewSwitch = allViewSwitch.children("[data-target='desktop']").removeClass('hidden');
-        
-        // register event
-        viewSwitch.children('.toggle-button').on('click', function() {
-          localStorage.forceDesktop = true;
-          location.reload(true);
-        });
-      }
-
-    } else {
-      // Remove localStorage.forceDesktop if it is viewing on desktop or mobile
-      // This only happens in development
-      if ( localStorage.forceDesktop !== undefined ) {
-        localStorage.forceDesktop = undefined;
-      }
+  // switch <meta viewport width> to given width
+  function switchView ( width ) {
+    $("meta[name='viewport']").attr('content', 'width='+width+', initial-scale=1');
+  }
+  // Show message for switching view
+  // Accept target: mobile, desktop
+  function showToggleBus ( target ) {
+    switch (target) {
+      case "mobile":
+        mobileViewSwitch.removeClass('hidden');
+        desktopViewSwitch.addClass('hidden');
+        break;
+      case "desktop":
+        desktopViewSwitch.removeClass('hidden');
+        mobileViewSwitch.addClass('hidden');
+        break;
+      default:
+        console.warn('Invalid toggle bus: '+target);
+        throw 'Invalid argument for showToggleBus';
     }
   }
+
+  // Initialize localStorage variables
+  if ( localStorage.forceDesktop === undefined ) {
+    localStorage.forceDesktop = false;
+  }
+
+  // Register button click action
+  $("#view-switch [data-target='mobile'] .toggle-button").on('click', function() {
+    // Switch to mobile
+    localStorage.forceDesktop = false;
+    switchView(300);
+    showToggleBus( 'desktop' );
+  });
+  $("#view-switch [data-target='desktop'] .toggle-button").on('click', function() {
+    // Switch to desktop
+    localStorage.forceDesktop = true;
+    switchView(1024);
+    showToggleBus( 'mobile' );
+  });
+
+  // Auto switch view if forceDesktop
+  if ( localStorage.forceDesktop === "true" ) {
+    switchView(1024);
+    showToggleBus( 'mobile' );
+  }
+
 });
