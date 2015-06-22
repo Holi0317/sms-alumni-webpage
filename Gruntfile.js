@@ -22,9 +22,8 @@ module.exports = function(grunt) {
     },
 
     copy: {
-      compile: {
+      css: {
         files: [{
-          // CSS files
           expand: true,
           flatten: true,
           cwd: 'src',
@@ -32,8 +31,10 @@ module.exports = function(grunt) {
                 '!**/_*.css',
                 '!bower_components/**/*'],
           dest: 'dist/static/css'
-        }, {
-          // Javascript files
+        }]
+      },
+      javascript:  {
+        files: [{
           expand: true,
           flatten: true,
           cwd: 'src',
@@ -41,15 +42,19 @@ module.exports = function(grunt) {
                 '!**/*_.js',
                 '!bower_components/**/*'],
           dest: 'dist/static/js'
-        }, {
-          // Font file
+        }]
+      },
+      fonts: {
+        files: [{
           expand: true,
           flatten: true,
           cwd: 'src',
           src: ['bower_components/**/dist/fonts/*'],
           dest: 'dist/static/fonts'
-        }, {
-          // Images
+        }]
+      },
+      images: {
+        files: [{
           expand: true,
           cwd: 'src/static/img',
           src: ['**/*'],
@@ -114,12 +119,12 @@ module.exports = function(grunt) {
         // Bundle css file on change
         // This does support adding file as this is how jade-usemin works
         files: ['src/static/css/**/*.css'],
-        tasks: ['jadeUsemin:compile']
+        tasks: ['copy:css', 'jadeUsemin:compile']
       },
       javascript: {
         // Bundle js file on change
         files: ['src/static/js/**/*.js'],
-        tasks: ['jadeUsemin:compile']
+        tasks: ['copy:javascript', 'jadeUsemin:compile']
       }
     },
 
@@ -148,7 +153,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
 
   grunt.registerTask('default', ['clean:compile',
-                                 'copy:compile',
+                                 'copy:css',
+                                 'copy:javascript',
+                                 'copy:fonts',
+                                 'copy:images',
                                  'wiredep:compile',
                                  'jadeUsemin:compile',
                                  'jade:compile']);
