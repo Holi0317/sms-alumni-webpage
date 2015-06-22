@@ -12,10 +12,10 @@ block body
     //- Create an event item. requires thumbnail path, title of the event and date of the event
     mixin photoItem(thumbnail, title, date)
       .col-md-4
-        img.img-thumbnail(src= thumbnail, alt= title, width='300', height='300')
-        h4= title
-        h4 Date: 
-          =date
+        a.noop(href='gallery-details.html')
+          img.img-thumbnail(src= thumbnail, alt= title, width='300', height='300')
+          h4= title
+        h4= 'Date: '+ date
 
     .row
       +photoItem('static/img/gallery/20150426_111.jpg', 'BBQ', '30 May 2015')
@@ -27,6 +27,7 @@ block body
       +photoItem('static/img/gallery/20150426_115.jpg', 'An interesting event', '11 May 2014')
       +photoItem('static/img/gallery/20150426_116.jpg', 'Comming event', '16 May 2015')
 
+  .container
     .row
       .col-lg-1.col-xs-3
         ul.pager: li.previous: a(href='#') Previous
