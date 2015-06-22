@@ -24,3 +24,15 @@ block body
                 p Some of our alumni would like to hold a party for her as she is already 86 years old. Target 10 tables. Please spread...
                 a(href='news-view.html')
                   span.glyphicon.glyphicon-arrow-right.pull-right(aria-hidden="true") Details
+
+  .container
+    .col-lg-1.col-xs-3
+      ul.pager: li.previous: a(href='#') Previous
+
+    .col-lg-4.col-lg-offset-3.col-xs-6.text-center
+      ul.pagination
+        for index in [1, 2, 3, 4, 5]
+          li: a.noop(href='gallery/'+index)= index
+
+    .col-lg-1.col-lg-offset-3.col-xs-3
+      ul.pager: li.next: a(href='#') Next
