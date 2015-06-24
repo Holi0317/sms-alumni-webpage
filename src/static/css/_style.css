@@ -108,6 +108,13 @@ footer span, footer a{
     padding-left: 5px;
 }
 
+/* Show navmenu button */
+@media (min-width: 1px) {
+  .navbar-toggle {
+    display: block;
+  }
+}
+
 /* ================= Navbar color ======================= */
 .navbar-default {
   background-color: #bdd7ee;

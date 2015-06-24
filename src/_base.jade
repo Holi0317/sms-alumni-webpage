@@ -12,6 +12,7 @@ html
     //-<!-- build:css static/bundle.css -->
     // bower:css
     link(rel='stylesheet', href='bower_components/bootstrap/dist/css/bootstrap.css')
+    link(rel='stylesheet', href='bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.css')
     // endbower
     link(rel='stylesheet', href='static/css/_style.css')
     //-<!-- endbuild -->
@@ -20,6 +21,7 @@ html
     // bower:js
     script(src='bower_components/jquery/dist/jquery.js')
     script(src='bower_components/bootstrap/dist/js/bootstrap.js')
+    script(src='bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.js')
     // endbower
     script(src='static/js/_onload.js')
     //-<!-- endbuild -->
@@ -60,27 +62,22 @@ html
         ul.nav.nav-justified
           include _navbar.jade
 
-    //- mobile and tablet navbar
-    nav.navbar.navbar-default.navbar-fixed-top.mobile-navbar.visible-xs.visible-sm
-      .container-fluid
-        .navbar-header
-          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#mobile-navbar')
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a.navbar-brand(href='/')
-            img.visible-xs-inline-block(src='static/img/logo.png', width='25', height='25', alt='Alumni Association')
-            span Alumni Association
-        .collapse.navbar-collapse#mobile-navbar
-          ul.nav.navbar-nav
-            include _navbar.jade
-            li.dropdown
-              a.dropdown-toggle(data-toggle='dropdown', href='#') Links
-                span.caret
-              ul.dropdown-menu
-                li: a(href='enews.html') e-news
-                li: a(href='contact.html') contact
-                li: a(href='http://www.facebook.com') facebook
+    .navmenu.navmenu-default.navmenu-fixed-left.offcanvas-sm.hidden-md.hidden-lg#mobile-navbar
+      ul.nav.navmenu-nav
+        include _navbar.jade
+      ul.nav.navmenu-nav
+        li: a(href='enews.html') e-news
+        li: a(href='contact.html') contact
+        li: a(href='http://www.facebook.com') facebook
+        //- TODO add switch view button here
+    .navbar.navbar-default.navbar-fixed-top.hidden-md.hidden-lg
+      button.navbar-toggle(type='button', data-toggle='offcanvas', data-target='#mobile-navbar')
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand(href='/')
+        img.visible-xs-inline-block.visible-sm-inline-block(src='static/img/logo.png', width='25', height='25', alt='Alumni Association')
+        span Alumni Association
 
     //- Desktop view in tablet
     //- As tablet view is quite awful...
