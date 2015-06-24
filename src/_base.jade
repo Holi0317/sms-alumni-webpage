@@ -62,6 +62,7 @@ html
         ul.nav.nav-justified
           include _navbar.jade
 
+    //- Mobile navbar
     .navmenu.navmenu-default.navmenu-fixed-left.offcanvas-sm.hidden-md.hidden-lg#mobile-navbar
       ul.nav.navmenu-nav
         include _navbar.jade
@@ -69,7 +70,8 @@ html
         li: a(href='enews.html') e-news
         li: a(href='contact.html') contact
         li: a(href='http://www.facebook.com') facebook
-        //- TODO add switch view button here
+      ul.nav.navmenu-nav
+        li: a.noop(href='#')#view-switch-desktop Switch to desktop view
     .navbar.navbar-default.navbar-fixed-top.hidden-md.hidden-lg
       button.navbar-toggle(type='button', data-toggle='offcanvas', data-target='#mobile-navbar')
         span.icon-bar
@@ -81,13 +83,8 @@ html
 
     //- Desktop view in tablet
     //- As tablet view is quite awful...
-    .container#view-switch
-      .alert.alert-info.visible-sm(role='alert', data-target='desktop')
-        button.close(type='button', aria-label='Close'): span(aria-hidden='true') &times;
-        span As tablet view is quite buggy, you may want to switch to desktop view
-        br
-        button.btn.btn-success.toggle-button Switch to Desktop view
-      .alert.alert-info.hidden(role='alert', data-target='mobile')
+    .container#view-switch-mobile
+      .alert.alert-info(role='alert')
         button.close(type='button', aria-label='Close'): span(aria-hidden='true') &times;
         button.btn.btn-success.toggle-button Switch back to tablet view
 

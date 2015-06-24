@@ -29,60 +29,43 @@ $(function() {
 
 // View switch
 $(function() {
-  if ( typeof(Storage) === "undefined") {
-    // Browser does not support storage, no-op
+  if ( typeof(Storage) === "undefined" || typeof InstallTrigger !== 'undefined' ) {
+    // Browser does not support storage, hide switch options
+    // Firefox (tested in 38.0.5-1 linux) does not respect to meta change. Disable if browser is firefox
+    $("#view-switch-mobile").hide();
+    $("#view-switch-desktop").hide();
     return;
   }
 
-  var screenWidth = $(window).width();
-  var mobileViewSwitch = $("#view-switch [data-target='mobile']");
-  var desktopViewSwitch = $("#view-switch [data-target='desktop']");
+  var mobileViewSwitch = $("#view-switch-mobile").hide();
 
   // switch <meta viewport width> to given width
   function switchView ( width ) {
     $("meta[name='viewport']").attr('content', 'width='+width+', initial-scale=1');
   }
-  // Show message for switching view
-  // Accept target: mobile, desktop
-  function showToggleBus ( target ) {
-    switch (target) {
-      case "mobile":
-        mobileViewSwitch.removeClass('hidden');
-        desktopViewSwitch.addClass('hidden');
-        break;
-      case "desktop":
-        desktopViewSwitch.removeClass('hidden');
-        mobileViewSwitch.addClass('hidden');
-        break;
-      default:
-        console.warn('Invalid toggle bus: '+target);
-        throw 'Invalid argument for showToggleBus';
-    }
+  function switchToDesktop() {
+    localStorage.forceDesktop = true;
+    switchView(1024);
+    mobileViewSwitch.show();
+  }
+  function switchToMobile() {
+    localStorage.forceDesktop = false;
+    switchView(300);
+    mobileViewSwitch.hide();
   }
 
   // Initialize localStorage variables
-  if ( localStorage.forceDesktop === undefined ) {
+  if ( typeof(localStorage.forceDesktop) === "undefined" ) {
     localStorage.forceDesktop = false;
   }
 
   // Register button click action
-  $("#view-switch [data-target='mobile'] .toggle-button").on('click', function() {
-    // Switch to mobile
-    localStorage.forceDesktop = false;
-    switchView(300);
-    showToggleBus( 'desktop' );
-  });
-  $("#view-switch [data-target='desktop'] .toggle-button").on('click', function() {
-    // Switch to desktop
-    localStorage.forceDesktop = true;
-    switchView(1024);
-    showToggleBus( 'mobile' );
-  });
+  $("#view-switch-mobile .toggle-button").on('click', switchToMobile);
+  $("#view-switch-desktop").on('click', switchToDesktop);
 
   // Auto switch view if forceDesktop
   if ( localStorage.forceDesktop === "true" ) {
-    switchView(1024);
-    showToggleBus( 'mobile' );
+    switchToDesktop();
   }
 
 });
