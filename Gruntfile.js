@@ -22,28 +22,6 @@ module.exports = function(grunt) {
     },
 
     copy: {
-      css: {
-        files: [{
-          expand: true,
-          flatten: true,
-          cwd: 'src',
-          src: ['**/*.css',
-                '!**/_*.css',
-                '!bower_components/**/*'],
-          dest: 'dist/static/css'
-        }]
-      },
-      javascript:  {
-        files: [{
-          expand: true,
-          flatten: true,
-          cwd: 'src',
-          src: ['**/*.js',
-                '!**/*_.js',
-                '!bower_components/**/*'],
-          dest: 'dist/static/js'
-        }]
-      },
       fonts: {
         files: [{
           expand: true,
@@ -104,6 +82,28 @@ module.exports = function(grunt) {
       }
     },
 
+    uglify: {
+      compile: {
+        files: [{
+          expand: true,
+          cwd: 'src/static/js',
+          src: ['**/*.js', '!**/_*.js'],
+          dest: 'dist/static/js'
+        }]
+      }
+    },
+
+    cssmin: {
+      compile: {
+        files: [{
+          expand: true,
+          cwd: 'src/static/css',
+          src: ['**/*.css', '!**/_*.css'],
+          dest: 'dist/static/css'
+        }]
+      }
+    },
+
     watch: {
       options: {
         livereload: true
@@ -115,16 +115,24 @@ module.exports = function(grunt) {
         tasks: ['jadeUsemin:watchCompile',
                 'jade:compile']
       },
-      css: {
+      cssBundle: {
         // Bundle css file on change
         // This does support adding file as this is how jade-usemin works
+        files: ['src/static/css/**/_*.css'],
+        tasks: ['jadeUsemin:compile']
+      },
+      javascriptBundle: {
+        // Bundle js file on change
+        files: ['src/static/js/**/_*.js'],
+        tasks: ['jadeUsemin:compile']
+      },
+      css: {
         files: ['src/static/css/**/*.css'],
-        tasks: ['copy:css', 'jadeUsemin:compile']
+        tasks: ['cssmin:compile']
       },
       javascript: {
-        // Bundle js file on change
         files: ['src/static/js/**/*.js'],
-        tasks: ['copy:javascript', 'jadeUsemin:compile']
+        tasks: ['uglify:compile']
       }
     },
 
@@ -152,8 +160,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
 
   grunt.registerTask('default', ['clean:compile',
-                                 'copy:css',
-                                 'copy:javascript',
+                                 'cssmin:compile',
+                                 'uglify:compile',
                                  'copy:fonts',
                                  'copy:images',
                                  'wiredep:compile',
