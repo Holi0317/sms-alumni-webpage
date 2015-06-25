@@ -175,3 +175,16 @@ footer span, footer a{
     background-color: #aac1d6;
   }
 }
+
+/* E-news register widget style */
+.e-signup-widget {
+    background-color: #8fabdd;
+    padding: 3px 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.e-signup-widget h3 {
+    margin-left: 10px;
+    color: #333;
+}
