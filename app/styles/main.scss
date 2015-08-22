@@ -5,36 +5,36 @@ $icon-font-path: '../fonts/';
 // endbower
 
 /* Helper functions
- * As some CSS usage are common to see, this section will wrap them up into classes */
+* As some CSS usage are common to see, this section will wrap them up into classes */
 .inline {
-    display: inline;
+  display: inline;
 }
 
 .inline-block {
-    display: inline-block;
+  display: inline-block;
 }
 
 .width-100 {
-    /* Force image to respect width, so that no dirty white space will left on the left */
-    width: 100%;
+  /* Force image to respect width, so that no dirty white space will left on the left */
+  width: 100%;
 }
 
 .relative {
-    position: relative;
+  position: relative;
 }
 
 /* ========== Global color settings ================ */
 h3 {
-    color: #0070C0;
+  color: #0070C0;
 }
 
 /* Set background color to blue */
 .theme-back-color {
-    background-color: #126aaf;
+  background-color: #126aaf;
 }
 /* ============ Section: header ================== */
 .header-right {
-   li+ li::before {
+  li+ li::before {
     /* Separate header links by ' / ' */
     content: " / ";
   }
@@ -62,33 +62,33 @@ h3 {
 }
 
 header .links {
-    position: absolute;
-    bottom: 0;
-    right: 20px;
+  position: absolute;
+  bottom: 0;
+  right: 20px;
 }
 
 /* =========== Section: footer =============== */
 /* set color of footer text */
 footer span, footer a{
-    color: #FFFFFF;
-    font-family: 'OpenSans', 'sans-serif';
-    opacity: 0.7;
+  color: #FFFFFF;
+  font-family: 'OpenSans', 'sans-serif';
+  opacity: 0.7;
 }
 /* =============== Section: desktop navbar =============== */
 /* Let items in navbar fill up all space */
 .nav > li > a {
-    padding: 15px 15px;
+  padding: 15px 15px;
 }
 
 /* leave some space on top of navbar */
 .desktop-nav nav {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 /* =============== Section: mobile navbar ================ */
 /* Leave some space between icon and text */
 .mobile-navbar .navbar-brand span {
-    padding-left: 5px;
+  padding-left: 5px;
 }
 
 /* Show navmenu button */
@@ -161,15 +161,15 @@ footer span, footer a{
 
 /* E-news register widget style */
 .e-signup-widget {
-    background-color: #8fabdd;
-    padding: 3px 10px;
-    margin-bottom: 20px;
-    overflow: hidden;
+  background-color: #8fabdd;
+  padding: 3px 10px;
+  margin-bottom: 20px;
+  overflow: hidden;
 
-    h3 {
-      margin-left: 10px;
-      color: #333;
-    }
+  h3 {
+    margin-left: 10px;
+    color: #333;
+  }
 }
 
 
@@ -187,7 +187,38 @@ body {
 }
 
 @media (max-width: 991px) {
-    body {
-        padding-top: 70px;
-    }
+  body {
+    padding-top: 70px;
+  }
+}
+
+// index.html
+#event-notice {
+  margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 5px;
+}
+
+table > tbody > tr > td:first-child {
+    font-weight: bold;
+}
+
+table p {
+    margin-bottom: 7px;
+}
+
+// news.html
+.summary {
+  display: None;
+}
+
+// events.html
+.well {
+    background-color: #bdd7ee;
+}
+
+.well-alt {
+    background-color: #f9cbad;
 }
