@@ -1,5 +1,10 @@
 {
-  "private": true,
+  "name": "SMS-alumni",
+  "version": "0.1.0",
+  "description": "Packages for St. marks school alumni",
+  "author": "holi0317 <holliswuhollis@gmail.com>",
+  "license": "MIT",
+  "repository": "holi0317/sms-alumni-webpage",
   "engines": {
     "node": ">=0.12.0"
   },

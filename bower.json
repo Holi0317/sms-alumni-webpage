@@ -1,6 +1,22 @@
 {
-  "name": "tmp",
-  "private": true,
+  "name": "SMS-alumni",
+  "version": "0.1.0",
+  "description": "Packages for St. marks school alumni",
+  "authors": [
+    "holi0317 <holliswuhollis@gmail.com>"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/holi0317/sms-alumni-webpage.git"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
   "dependencies": {
     "bootstrap-sass": "~3.3.5",
     "jasny-bootstrap": "~3.1.3"
