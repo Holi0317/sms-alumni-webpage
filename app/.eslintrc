@@ -1,0 +1,9 @@
+{
+  "parser": "espree",
+  "env": {
+    "browser": true,
+    "jquery": true,
+    "node": false,
+    "es6": false
+  }
+}

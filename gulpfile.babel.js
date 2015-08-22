@@ -1,5 +1,4 @@
 // generated on 2015-08-22 using generator-gulp-webapp 1.0.3
-/* jshint browser: false, esnext: true, jquery: false, node: true */
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import browserSync from 'browser-sync';
@@ -72,7 +71,8 @@ gulp.task('extras', () => {
   return gulp.src([
     'app/*.*',
     '!app/*.html',
-    '!app/*.jade'
+    '!app/*.jade',
+    '!app/.eslintrc'
   ], {
     dot: true
   }).pipe(gulp.dest('dist'));
