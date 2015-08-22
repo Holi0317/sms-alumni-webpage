@@ -1,10 +1,10 @@
-extends ./_base.jade
+extends layouts/default.jade
 
 block title
   title Photo Gallery - St. Mark's School Alumni Association
 
 block vars
-  - var banner_image = 'static/img/banner_gallery.png'
+  - var banner_image = 'images/banner_gallery.png'
 
 block body
   .container
@@ -18,14 +18,14 @@ block body
         h4= 'Date: '+ date
 
     .row
-      +photoItem('static/img/gallery/20150426_111.jpg', 'BBQ', '30 May 2015')
-      +photoItem('static/img/gallery/20150426_112.jpg', '「生涯規劃」惠州考察團', '22-23 May 2015')
-      +photoItem('static/img/gallery/20150426_113.jpg', '蛋糕製作班', '25 July 2015')
+      +photoItem('images/gallery/20150426_111.jpg', 'BBQ', '30 May 2015')
+      +photoItem('images/gallery/20150426_112.jpg', '「生涯規劃」惠州考察團', '22-23 May 2015')
+      +photoItem('images/gallery/20150426_113.jpg', '蛋糕製作班', '25 July 2015')
 
     .row
-      +photoItem('static/img/gallery/20150426_114.jpg', 'Placeholder', '19 June 2015')
-      +photoItem('static/img/gallery/20150426_115.jpg', 'An interesting event', '11 May 2014')
-      +photoItem('static/img/gallery/20150426_116.jpg', 'Comming event', '16 May 2015')
+      +photoItem('images/gallery/20150426_114.jpg', 'Placeholder', '19 June 2015')
+      +photoItem('images/gallery/20150426_115.jpg', 'An interesting event', '11 May 2014')
+      +photoItem('images/gallery/20150426_116.jpg', 'Comming event', '16 May 2015')
 
   .container
     .row

@@ -1,19 +1,16 @@
-extends ./_base.jade
+extends layouts/default.jade
 
 block title
   title Upcoming events - St. Mark's School Alumni Association
 
 block vars
-  - var banner_image = 'static/img/banner_event.png'
-
-block head
-  link(rel='stylesheet', href='static/css/events.css')
+  - var banner_image = 'images/banner_event.png'
 
 block body
   .container
     aside.col-md-3
       //- left bar
-      include _enews_widget.jade
+      include layouts/enews_widget
 
     .col-md-9
       //- right Content

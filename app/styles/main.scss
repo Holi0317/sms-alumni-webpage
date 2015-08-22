@@ -1,11 +1,8 @@
-/* Font import
- * As bootstrap glyphicon loading is... well, funky. glyphicon font will be loaded here */
-@font-face {
-  font-family: 'Glyphicons Halflings';
+$icon-font-path: '../fonts/';
 
-  src: url('fonts/glyphicons-halflings-regular.eot');
-  src: url('fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('fonts/glyphicons-halflings-regular.woff') format('woff'), url('fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
-}
+// bower:scss
+@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+// endbower
 
 /* Helper functions
  * As some CSS usage are common to see, this section will wrap them up into classes */
@@ -26,20 +23,6 @@
     position: relative;
 }
 
-/* ========== Section: body =================== */
-/* Set body padding and font (Perhaps overridded by bootstrap */
-body {
-    padding-top: 20px;
-    font-family: 'OpenSans', 'sans-serif';
-}
-
-/* As mobile view have fixed navbar, body need to have padding of 70px */
-@media (max-width: 991px) {
-    body {
-        padding-top: 70px;
-    }
-}
-
 /* ========== Global color settings ================ */
 h3 {
     color: #0070C0;
@@ -49,24 +32,33 @@ h3 {
 .theme-back-color {
     background-color: #126aaf;
 }
-
 /* ============ Section: header ================== */
-/* Separate header links by ' / ' */
-.header-right li+ li::before {
+.header-right {
+   li+ li::before {
+    /* Separate header links by ' / ' */
     content: " / ";
+  }
+
+  img {
+    /* facebook icon */
+    position: absolute;
+    right: 20px;
+    top: 0;
+  }
 }
 
 /* Header image */
-.header-left img {
+.header-left {
+  img {
     padding: 5px;
-}
-
-/* Header text */
-.header-left span {
+  }
+  span {
+    /* Header text */
     position: absolute;
     bottom: 0;
     padding: 7px;
     font-size: 170%;
+  }
 }
 
 header .links {
@@ -75,14 +67,6 @@ header .links {
     right: 20px;
 }
 
-/* facebook icon */
-.header-right img {
-    position: absolute;
-    right: 20px;
-    top: 0;
-}
-
-
 /* =========== Section: footer =============== */
 /* set color of footer text */
 footer span, footer a{
@@ -90,7 +74,6 @@ footer span, footer a{
     font-family: 'OpenSans', 'sans-serif';
     opacity: 0.7;
 }
-
 /* =============== Section: desktop navbar =============== */
 /* Let items in navbar fill up all space */
 .nav > li > a {
@@ -174,4 +157,37 @@ footer span, footer a{
     color: #4b565f;
     background-color: #aac1d6;
   }
+}
+
+/* E-news register widget style */
+.e-signup-widget {
+    background-color: #8fabdd;
+    padding: 3px 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+
+    h3 {
+      margin-left: 10px;
+      color: #333;
+    }
+}
+
+
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/* Space out content a bit */
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+@media (max-width: 991px) {
+    body {
+        padding-top: 70px;
+    }
 }

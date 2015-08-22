@@ -8,32 +8,25 @@ html
     block title
       title PLEASE CHANGE THE TITIE
 
-    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Open+Sans')
-    //-<!-- build:css static/bundle.css -->
+    // build:css styles/vendor.css
     // bower:css
-    link(rel='stylesheet', href='bower_components/bootstrap/dist/css/bootstrap.css')
-    link(rel='stylesheet', href='bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.css')
     // endbower
-    link(rel='stylesheet', href='static/css/_style.css')
-    //-<!-- endbuild -->
+    // endbuild
 
-    //-<!-- build:js static/bundle.js -->
-    // bower:js
-    script(src='bower_components/jquery/dist/jquery.js')
-    script(src='bower_components/bootstrap/dist/js/bootstrap.js')
-    script(src='bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.js')
-    // endbower
-    script(src='static/js/_onload.js')
-    //-<!-- endbuild -->
-
-    block head
+    // build:css styles/main.css
+    link(rel='stylesheet' href='/styles/main.css')
+    // endbuild
 
   body
+    | <!--[if lt IE 10]>
+    |   <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    | <![endif]-->
+    
     //- header
     header.container.relative.visible-md.visible-lg
       .header-left
         a(href='/')
-          img.img-responsive.inline(src='static/img/logo.png', alt='logo', width='55', height='55')
+          img.img-responsive.inline(src='images/logo.png', alt='logo', width='55', height='55')
           span St. Mark's School Alumni Association
       .header-right
         small.links
@@ -42,7 +35,7 @@ html
             li: a(href='links.html') Links
             li: a(href='enews.html') e-news sign up
             li: a(href='contact.html') contact us
-        a(href='http://www.facbook.com'): img.img-responsive(src='static/img/fb_icon.png', alt='Facebook page', height='25', width='25')
+        a(href='http://www.facbook.com'): img.img-responsive(src='images/fb_icon.png', alt='Facebook page', height='25', width='25')
 
     //- separator, blue
     .container.visible-md.visible-lg
@@ -60,12 +53,20 @@ html
     .container.desktop-nav.visible-md.visible-lg
       nav.navbar.navbar-default
         ul.nav.nav-justified
-          include _navbar.jade
+          li: a('about us', 'index.html')
+          li: a('news', 'news.html')
+          li: a('upcoming events', 'events.html')
+          li: a('photo gallery', 'gallery.html')
+          li: a('membership', 'membership.html')
+          li: a('souvenirs', 'souvenirs.html')
 
     //- Mobile navbar
     .navmenu.navmenu-default.navmenu-fixed-left.offcanvas-sm.hidden-md.hidden-lg#mobile-navbar
       ul.nav.navmenu-nav
-        include _navbar.jade
+        li: a(href='http://www.stmarks.edu.hk/newsms/') St. Mark's School
+        li: a(href='links.html') Links
+        li: a(href='enews.html') e-news sign up
+        li: a(href='contact.html') contact us
       ul.nav.navmenu-nav
         li: a(href='enews.html') e-news
         li: a(href='contact.html') contact
@@ -78,7 +79,7 @@ html
         span.icon-bar
         span.icon-bar
       a.navbar-brand(href='/')
-        img.visible-xs-inline-block.visible-sm-inline-block(src='static/img/logo.png', width='25', height='25', alt='Alumni Association')
+        img.visible-xs-inline-block.visible-sm-inline-block(src='images/logo.png', width='25', height='25', alt='Alumni Association')
         span Alumni Association
 
     //- Desktop view in tablet
@@ -99,8 +100,21 @@ html
     .container
       footer.text-center.theme-back-color
         .container.text-muted
-          span Copyright &copy 2015 St. Mark's School Alumni Association Limited. Released under 
-          a(href='https://github.com/Holi0317/sms-alumni-webpage/blob/master/LICENSE') MIT License
-          span . /&nbsp
-          a(href='sitemap.html') site map
-          span  / web designed by Hollis and Eric
+          span.
+            Copyright &copy 2015 St. Mark's School Alumni Association Limited. Released under <a href='https://github.com/Holi0317/sms-alumni-webpage/blob/master/LICENSE'>MIT License</a>. /&nbsp
+            <a href='sitemap.html'>site map</a>&nbsp/
+            web designed by Hollis and Eric
+            
+    // build:js scripts/vendor.js
+    // bower:js
+    script(src='/bower_components/jquery/dist/jquery.js')
+    // endbower
+    // endbuild
+
+    // build:js scripts/plugins.js
+    script(src='/bower_components/bootstrap-sass/assets/javascripts/bootstrap.js')
+    // endbuild
+
+    // build:js scripts/main.js
+    script(src='scripts/main.js')
+    // endbuild
