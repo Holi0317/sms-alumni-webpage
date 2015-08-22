@@ -1,34 +1,30 @@
-extends ./_base.jade
-
-block head
-  link(rel='stylesheet', href='static/css/index.css')
-  script(src='static/js/index.js')
+extends layouts/default.jade
 
 block title
   title St. Mark's School Alumni Association
 
 block vars
-  - var banner_image = 'static/img/banner_index.png'
+  - var banner_image = 'images/banner_index.png'
 
 block body
   .container
     aside.col-md-3.col-sm.3.col-xs-12
       //- Left bar
       .list-group#sub-nav
-        a.list-group-item.active(href='#', data-bound-to='#exec-commitee') excutive commitee
-        a.list-group-item(href='#', data-bound-to='#past-chair') past chairpersons
-        a.list-group-item(href='#', data-bound-to='#honor-mem') honorable members
+        a.list-group-item.cont-switch.active(href='#', data-bound-to='#exec-commitee') excutive commitee
+        a.list-group-item.cont-switch(href='#', data-bound-to='#past-chair') past chairpersons
+        a.list-group-item.cont-switch(href='#', data-bound-to='#honor-mem') honorable members
 
       .visible-md.visible-lg
-        a(href='events.html'): img#event-notice.width-100.img-responsive(src='static/img/index/event.png', alt='upcomming event')
+        a(href='events.html'): img#event-notice.width-100.img-responsive(src='images/index/event.png', alt='upcomming event')
 
-      include _enews_widget.jade
+      include layouts/enews_widget
 
     .col-md-9.col-sm-9.col-xs-12
       //- Content on right
       #exec-commitee.collapse.in
         //- Executive commitee Content
-        img.img-responsive(src='static/img/index/exec-commitee.png', alt='Executive commitee photo')
+        img.img-responsive(src='images/index/exec-commitee.png', alt='Executive commitee photo')
         h3 2015-16 executive commitee
         .table-responsive
           table.table.table-striped

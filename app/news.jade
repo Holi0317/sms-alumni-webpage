@@ -1,14 +1,10 @@
-extends ./_base.jade
-
-block head
-  script(src='static/js/news.js')
-  link(rel='stylesheet', href='static/css/news.css')
+extends layouts/default.jade
 
 block title
   title Newsletter - St. Mark's School Alumni Association
 
 block vars
-  - var banner_image = 'static/img/banner_index.png'
+  - var banner_image = 'images/banner_index.png'
 
 block body
   .container
