@@ -11,10 +11,8 @@ html
     // build:css styles/vendor.css
     // bower:css
     // endbower
-    // endbuild
-
-    // build:css styles/main.css
     link(rel='stylesheet' href='/styles/main.css')
+    link(rel='stylesheet' href='/bower_components/jasny-bootstrap/dist/css/jasny-bootstrap.css')
     // endbuild
 
   body
@@ -53,20 +51,22 @@ html
     .container.desktop-nav.visible-md.visible-lg
       nav.navbar.navbar-default
         ul.nav.nav-justified
-          li: a('about us', 'index.html')
-          li: a('news', 'news.html')
-          li: a('upcoming events', 'events.html')
-          li: a('photo gallery', 'gallery.html')
-          li: a('membership', 'membership.html')
-          li: a('souvenirs', 'souvenirs.html')
+          li: a(href='index.html') about us
+          li: a(href='news.html') news
+          li: a(href='events.html') upcoming events
+          li: a(href='gallery.html') photo gallery
+          li: a(href='membership.html') membership
+          li: a(href='souvenirs.html') souvenirs
 
     //- Mobile navbar
     .navmenu.navmenu-default.navmenu-fixed-left.offcanvas-sm.hidden-md.hidden-lg#mobile-navbar
       ul.nav.navmenu-nav
-        li: a(href='http://www.stmarks.edu.hk/newsms/') St. Mark's School
-        li: a(href='links.html') Links
-        li: a(href='enews.html') e-news sign up
-        li: a(href='contact.html') contact us
+        li: a(href='index.html') about us
+        li: a(href='news.html') news
+        li: a(href='events.html') upcoming events
+        li: a(href='gallery.html') photo gallery
+        li: a(href='membership.html') membership
+        li: a(href='souvenirs.html') souvenirs
       ul.nav.navmenu-nav
         li: a(href='enews.html') e-news
         li: a(href='contact.html') contact
@@ -109,12 +109,7 @@ html
     // bower:js
     script(src='/bower_components/jquery/dist/jquery.js')
     // endbower
-    // endbuild
-
-    // build:js scripts/plugins.js
     script(src='/bower_components/bootstrap-sass/assets/javascripts/bootstrap.js')
-    // endbuild
-
-    // build:js scripts/main.js
+    script(src='/bower_components/jasny-bootstrap/dist/js/jasny-bootstrap.js')
     script(src='scripts/main.js')
     // endbuild
